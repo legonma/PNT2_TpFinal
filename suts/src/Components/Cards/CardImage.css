@@ -1,0 +1,16 @@
+.CardImage {
+    background-image: url('../../Assets/imageCard.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 352px;
+    height: 542px;
+}
+
+.CardImage .Content img {
+    background-color: #9da8b1;
+    position: absolute;
+    z-index: -1;
+    width: 80%;
+    top: 120px;
+    left: 10%;
+}

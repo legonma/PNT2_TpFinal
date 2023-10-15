@@ -1,0 +1,16 @@
+.CardHistory {
+    background-image: url('../../Assets/baseCard.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 340px;
+    height: 542px;
+}
+
+.CardHistory .Content {
+    margin: 35px 20px;
+}
+
+.CardHistory .Content p {
+    overflow: hidden;
+    height: 380px;
+}
