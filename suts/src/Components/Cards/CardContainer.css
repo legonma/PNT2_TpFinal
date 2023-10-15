@@ -1,22 +1,8 @@
 .CardContainer {
     display: flex;
+    gap: 30px;
     width: 100%;
-    height: 550px;
-    margin: 20px;
-    margin-bottom: 20px;
-}
-
-.CardContainer .Card:nth-child(1) {
-    margin-left: 380px;
-}
-
-.CardContainer .Card:nth-child(2) {
-    margin-left: 760px;
-}
-
-.CardContainer .Card:nth-child(2) .CardFront {
-}
-
-.CardContainer .Card:nth-child(3) {
-    margin-left: 1140px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
 }

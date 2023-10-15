@@ -1,10 +1,9 @@
 import {useState} from "react";
 import CardFactory from "./CardFactory";
 import './CardBase.css';
-import cardBaseImage from '../../Assets/baseCard.png'
 import { useEffect } from "react";
 
-export default function CardBase({data}) {
+export default function CardBase({data, delay}) {
     const [card, setCard] = useState('CardFlipped');
 
     const flipCard = () => {
@@ -14,10 +13,10 @@ export default function CardBase({data}) {
     useEffect(() => {
         const timer = setTimeout(() => {
             flipCard();
-        }, 1000);
+        }, delay);
 
         return () => clearTimeout(timer);
-    }, [])
+    }, [delay])
 
     return (
         <div className = {card}>

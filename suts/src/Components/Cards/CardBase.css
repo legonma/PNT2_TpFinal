@@ -1,7 +1,7 @@
 .Card, .CardFlipped {
-    width: 340px;
-    height: 480px;
-    position: absolute;
+    width: 358px;
+    height: 560px;
+    position: relative;
 }
 
 .CardBack {
@@ -15,7 +15,6 @@
 
 .CardFront {
     justify-content: flex-start;
-
 }
 
 .CardFront,
