@@ -7,6 +7,7 @@
 .CardBack {
     justify-content: center;
     background-image: url('../../Assets/backCard.png');
+    background-position-y: -3px;
     background-size: cover;
     background-repeat: no-repeat;
     width: 340px;

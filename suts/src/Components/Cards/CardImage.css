@@ -2,6 +2,7 @@
     background-image: url('../../Assets/imageCard.png');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position-y: -5px;
     width: 352px;
     height: 542px;
 }

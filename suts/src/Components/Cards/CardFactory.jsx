@@ -27,14 +27,14 @@ import CardAnswer from "./CardAnswer";
 */
 
 export default function CardFactory({data}) {
-    const {type, history, image, answers} = data;
+    const {type, history, image, answers, handler} = data;
     switch (type) {
         case 'history':
             return <CardHistory history={history}/>
         case 'image':
             return <CardImage image={image}/>
         case 'answers':
-            return <CardAnswer answers={answers}/>
+            return <CardAnswer answers={answers} handler = {handler}/>
         default:
             return null;
     }
