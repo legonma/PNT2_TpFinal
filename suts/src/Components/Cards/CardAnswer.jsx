@@ -1,14 +1,17 @@
 import React from "react";
+import { useContext } from "react";
+import { CardContext } from './Context/CardContext';
 import './CardAnswer.css'
 
 export default function CardAnswer({answers, handler}) {
+    const {flipCard} = useContext(CardContext)
 
     const handleOnClick = (nextScene) => {
+        flipCard()
         setTimeout(() => {
             handler.handleAnswerClick(nextScene);
-        }, 1000);
+        }, 2200);
     };
-
 
     return (
         <div className="CardAnswer">

@@ -3,9 +3,9 @@ import React, {useState, createContext} from 'react';
 export const CardContext = createContext();
 
 export const CardProvider = ({ children }) => {
-  const [cardFlipped, setCardFlipped] = useState('CardFlipped');
+  const [cardFlipped, setCardFlipped] = useState(false);
   const flipCard = () => {
-    cardFlipped === 'Card' ? setCardFlipped('CardFlipped') : setCardFlipped('Card');
+    cardFlipped ? setCardFlipped(false) : setCardFlipped(true);
   }
 
   return (

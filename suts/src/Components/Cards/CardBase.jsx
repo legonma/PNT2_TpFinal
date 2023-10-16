@@ -1,29 +1,36 @@
-import {useState} from "react";
 import CardFactory from "./CardFactory";
 import './CardBase.css';
-import { useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CardContext } from './Context/CardContext';
 
 export default function CardBase({data, delay}) {
+    const {cardFlipped, flipCard} = useContext(CardContext);
     const [card, setCard] = useState('CardFlipped');
 
-    const flipCard = () => {
-        card === 'Card' ? setCard('CardFlipped') : setCard('Card');
-    }   
-
+    const flipBack = () => {
+        setCard('CardFlipped');
+    }
+    const flipFront = () => {
+        setCard('Card');
+    }
+        
     useEffect(() => {
         const timer = setTimeout(() => {
-            flipCard();
+            flipBack();
+            const innerTimer = setTimeout(() => {
+                flipFront();
+            }, delay + 500);
+            return () => clearTimeout(innerTimer);
         }, delay);
-
         return () => clearTimeout(timer);
-    }, [delay])
+    }, [delay, cardFlipped]);
 
     return (
-        <div className = {card}>
-            <div className ="CardFront">
+        <div className={card}>
+            <div className="CardFront">
                 <CardFactory data={data}/>
             </div>
-            <div className ="CardBack">
+            <div className="CardBack">
             </div>
         </div>
     )

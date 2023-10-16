@@ -2,6 +2,7 @@ import './App.css';
 import CardContainer from './Components/Cards/CardContainer';
 import logicGame from './Data/logicGame'
 import { useState } from 'react';
+import { CardProvider } from './Components/Cards/Context/CardContext'
 
 function App() {
     const [currentScene, setCurrentScene] = useState('E0')
@@ -13,7 +14,9 @@ function App() {
 
     return (
         <div className='App'>
-            <CardContainer data={currentData} handleAnswerClick={handleAnswerClick}/>
+            <CardProvider>
+                <CardContainer data={currentData} handleAnswerClick={handleAnswerClick}/>
+            </CardProvider>
         </div>
     );
 }
