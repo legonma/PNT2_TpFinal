@@ -1,0 +1,14 @@
+.CardAnswer {
+    justify-content: center;
+    background-image: url('../../Assets/HistoryCard.png');
+    background-position-y: -3px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 340px;
+    height: 542px;
+}
+
+.CardAnswer .Content {
+    margin-top: 170px;
+    margin-left: 30px;
+}

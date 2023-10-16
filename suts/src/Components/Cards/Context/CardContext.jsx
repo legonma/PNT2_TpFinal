@@ -9,7 +9,7 @@ export const CardProvider = ({ children }) => {
   }
 
   return (
-    <CardContext.Provider value={{ cardFlipped, flipCard, handleCardFlip}}>
+    <CardContext.Provider value={{ cardFlipped, flipCard}}>
       {children}
     </CardContext.Provider>
   );

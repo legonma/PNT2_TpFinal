@@ -1,4 +1,6 @@
 import soloFondo from '../Assets/soloFondo.png';
+import Espinas2 from '../Assets/Espinas1.png';
+import CuevaE2 from '../Assets/CuevaE2.png';
 
 const logicGame = {
     scenes: {
@@ -16,7 +18,7 @@ const logicGame = {
                     },
                     {
                         text: 'Explorar Cueva',
-                        next: 'E1'
+                        next: 'E2'
                     },
                     {
                         text: 'Revisar los restos del naufragio',
@@ -28,10 +30,33 @@ const logicGame = {
         'E1': {
             content: {
                 history: {
-                    title:'La maleza con espinas te lastima.',
-                    text:'Al intentar adentrarte, la maleza con espinas te lastima.'
+                    title:'La maleza con espinas.',
+                    text:'Al intentar adentrarte, la maleza con espinas te lastima. Sientes cómo los afilados arbustos se clavan en tu piel, causando un dolor punzante y dejando pequeñas heridas que comienzan a sangrar. A pesar de la incomodidad, tu curiosidad y determinación te impulsan a continuar. El sendero se estrecha a medida que avanzas, pero la sensación de descubrimiento te llena de emoción y expectativa.'
                 },
-                image: soloFondo,
+                image: Espinas2,
+                answers: [
+                    {
+                        text: 'Insistís en adentrarte entre la maleza',
+                        next: 'E0'
+                    },
+                    {
+                        text: 'volvés a la playa',
+                        next: 'E0'
+                    },
+                    {
+                        text: '(solo con machete) Lo utilizás para abrirte paso',
+                        next: 'E0'
+                    }
+                ]
+            }
+        },
+        'E2': {
+            content: {
+                history: {
+                    title:'La maleza con espinas.',
+                    text:'Al intentar adentrarte, la maleza con espinas te lastima. Sientes cómo los afilados arbustos se clavan en tu piel, causando un dolor punzante y dejando pequeñas heridas que comienzan a sangrar. A pesar de la incomodidad, tu curiosidad y determinación te impulsan a continuar. El sendero se estrecha a medida que avanzas, pero la sensación de descubrimiento te llena de emoción y expectativa.'
+                },
+                image: CuevaE2,
                 answers: [
                     {
                         text: 'Insistís en adentrarte entre la maleza',
