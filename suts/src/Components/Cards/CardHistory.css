@@ -1,5 +1,5 @@
 .CardHistory {
-    background-image: url('../../Assets/baseCard.png');
+    background-image: url('../../Assets/TextCard3.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 340px;
@@ -7,10 +7,17 @@
 }
 
 .CardHistory .Content {
-    margin: 35px 20px;
+    margin: 80px 35px;
 }
 
 .CardHistory .Content p {
+    padding: 30px 20px 0;
+    height: 235px;
     overflow: hidden;
-    height: 380px;
+}
+
+.CardHistory .Content h2 {
+    font-family: 'Young Serif', serif;
+    color: #ebe3e3;
+    text-align: center;
 }

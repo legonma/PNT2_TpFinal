@@ -8,6 +8,7 @@ import { CardNavBarProvider } from './Components/Cards/Context/CardNavBarProvide
 
 function App() {
     const [currentScene, setCurrentScene] = useState('E0')
+
     const handleAnswerClick = (nextScene) => {
         setCurrentScene(nextScene);
     };
@@ -17,10 +18,8 @@ function App() {
     return (
         <div className='App'>
             <CardProvider>
-                <CardNavBarProvider>
-                    <Header/>
-                </CardNavBarProvider>
-                <CardContainer data={currentData} handleAnswerClick={handleAnswerClick}/>
+                <Header handleAnswerClick={handleAnswerClick}/>
+                <CardContainer scene={currentScene} data={currentData} handleAnswerClick={handleAnswerClick}/>
             </CardProvider>
         </div>
     );

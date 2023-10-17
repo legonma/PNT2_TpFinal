@@ -3,7 +3,7 @@ import './CardBase.css';
 import { useContext, useEffect, useState } from "react";
 import { CardContext } from './Context/CardContext';
 
-export default function CardBase({data, delay}) {
+export default function CardBase({data, delay, noFlip}) {
     const {cardFlipped, flipCard} = useContext(CardContext);
     const [card, setCard] = useState('CardFlipped');
 
@@ -11,7 +11,9 @@ export default function CardBase({data, delay}) {
         setCard('CardFlipped');
     }
     const flipFront = () => {
-        setCard('Card');
+        if (!noFlip) {
+            setCard('Card');
+        }
     }
         
     useEffect(() => {

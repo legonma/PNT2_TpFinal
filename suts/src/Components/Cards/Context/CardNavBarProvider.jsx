@@ -8,7 +8,7 @@ export const CardNavBarProvider = ({children}) => {
     const [cardNav, setCardNav] = useState();
 
     const updateCardNav = (navBar) => {
-
+        setCardNav(navBar);
     }
 
     return (

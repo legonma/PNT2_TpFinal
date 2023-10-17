@@ -7,7 +7,7 @@ import CardInventory from "./CardInventory";
 import CardSettings from "./CardSettings";
 
 export default function CardFactory({data}) {
-    const {type, history, image, answers, handler} = data;
+    const {type, history, image, answers, handler, login} = data;
     switch (type) {
         case 'history':
             return <CardHistory history={history}/>
@@ -16,7 +16,7 @@ export default function CardFactory({data}) {
         case 'answers':
             return <CardAnswer answers={answers} handler = {handler}/>
         case 'login':
-            return <CardLogin/>
+            return <CardLogin login={login}/>
         case 'settings':
             return <CardSettings/>
         case 'inventory':

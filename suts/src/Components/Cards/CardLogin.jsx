@@ -1,9 +1,9 @@
 import React from "react";
 import { useContext } from "react";
 import { CardContext } from './Context/CardContext';
-import './CardAnswer.css'
+import './CardLogin.css'
 
-export default function CardLogin({handler}) {
+export default function CardLogin({login}) {
     // --- Si es que necesito dar vuelta la carta uso context. por ahora no se que carajos voy a hacer aca
     //const {flipCard} = useContext(CardContext)
 
