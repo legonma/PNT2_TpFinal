@@ -5,5 +5,9 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-image: url('./Assets/background1.png');
+  box-shadow: inset 1px 0px 50px 60px rgba(0,0,0,0.48);
+  background-image: url('./Assets/backgroundTableSaturate.png');
+  background-position: center;
+  background-size: 128vw;
+  filter: blur(0.4px);
 }

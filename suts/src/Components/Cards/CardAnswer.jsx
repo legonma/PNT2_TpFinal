@@ -10,7 +10,7 @@ export default function CardAnswer({answers, handler}) {
         flipCard()
         setTimeout(() => {
             handler.handleAnswerClick(nextScene);
-        }, 2200);
+        }, 1200);
     };
 
     return (

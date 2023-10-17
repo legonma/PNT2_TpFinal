@@ -11,9 +11,9 @@ export default function CardContainer({data, handleAnswerClick}) {
     useEffect(() => {
         if (true) {
             setCardContainer([
-                <CardBase key='history' data={{type: 'history', history}} delay={1000}/>,
-                <CardBase key='image' data={{type: 'image', image}} delay={1500}/>,
-                <CardBase key='answers' data={{type: 'answers', answers, handler: {handleAnswerClick}}} delay={2000}/>
+                <CardBase key='history' data={{type: 'history', history}} delay={500}/>,
+                <CardBase key='image' data={{type: 'image', image}} delay={750}/>,
+                <CardBase key='answers' data={{type: 'answers', answers, handler: {handleAnswerClick}}} delay={1000}/>
             ])
         }
     }, [data, handleAnswerClick, history, image, answers])
