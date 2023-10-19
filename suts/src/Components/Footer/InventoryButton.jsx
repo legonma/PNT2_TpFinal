@@ -1,9 +1,8 @@
 import React from "react";
 import { useContext } from "react";
 import { CardContext } from '../Cards/Context/CardContext';
-import './Header.css';
 
-export default function Header ({data, handleAnswerClick}) {
+export default function InventroyButton ({data, handleAnswerClick}) {
     const {flipCard} = useContext(CardContext)
 
     const handleOnClick = (nextScene) => {
@@ -14,12 +13,10 @@ export default function Header ({data, handleAnswerClick}) {
     };
 
     return(
-        <div className="Header">
-            <nav className="Container">
-                <button className="loginButton" onClick={() => handleOnClick('Login')}>
-                    <span>Login</span>
-                </button>
-            </nav>
+        <div className="Inventory">
+            <div className="Container">
+                <button onClick={() => handleOnClick('Inventory')}>Inventory</button>
+            </div>
         </div>
     );
 }

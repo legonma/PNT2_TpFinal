@@ -10,5 +10,48 @@
 
 .CardAnswer .Content {
     margin-top: 170px;
-    margin-left: 30px;
+}
+
+.CardAnswer .Content ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-right: 0;
+    width: 340px;
+    text-align: center;
+}
+
+.CardAnswer .Content li {
+    margin-bottom: 12px;
+}
+
+.CardAnswer .Content .AnswerButton {
+    background-image: url('../../Assets/AnswerButton.png');
+    border: none;
+    background-color: unset;
+    width: 295px;
+    height: 40px;
+    color: #d5d5d5;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.CardAnswer .Content .AnswerButton:hover {
+    background-size: 104%;
+    width: 300px;
+    font-size: 15px;
+}
+
+.CardAnswer .Content span {
+    font-family: 'Young Serif', serif;
+}
+
+.Content .Miselan {
+    background-image: url('../../Assets/Miselan.png');
+    width: 340px;
+    height: 25px;
+    position: relative;
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
 }

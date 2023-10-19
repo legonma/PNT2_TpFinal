@@ -1,7 +1,7 @@
 .CardContainer {
     display: flex;
     position: relative;
-    top: 178px;
+    /*top: 178px;*/
     gap: 30px;
     width: 100%;
     flex-direction: row;

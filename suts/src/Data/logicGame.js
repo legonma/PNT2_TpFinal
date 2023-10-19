@@ -1,7 +1,7 @@
 import soloFondo from '../Assets/soloFondo.png';
 import Espinas2 from '../Assets/Espinas1.png';
 import CuevaE2 from '../Assets/CuevaE2.png';
-
+import Naufragio1 from '../Assets/Naufragio1.jpeg'
 const logicGame = {
     scenes: {
         'Login': {
@@ -12,6 +12,13 @@ const logicGame = {
                 },
                 left: false,
                 right: false
+            }
+        },
+        'Inventory': {
+            content: {
+                inventory: [],
+                left:false,
+                right:false
             }
         },
         'E0': {
@@ -32,7 +39,7 @@ const logicGame = {
                     },
                     {
                         text: 'Revisar los restos del naufragio',
-                        next: 'E1'
+                        next: 'E3'
                     }
                 ]
             }
@@ -78,6 +85,25 @@ const logicGame = {
                     },
                     {
                         text: '(solo con machete) Lo utilizás para abrirte paso',
+                        next: 'E0'
+                    }
+                ]
+            }
+        },
+        'E3': {
+            content: {
+                history: {
+                    title:'Naufragio',
+                    text:'A pocos metros de la orilla, se divisa parte del naufragio. La curiosidad te impulsa a investigar más de cerca. ¿Te aventuras a nadar hasta allí o prefieres revisar los restos esparcidos por la playa?'
+                },
+                image: Naufragio1,
+                answers: [
+                    {
+                        text: 'Nadás hacia él.',
+                        next: 'E0'
+                    },
+                    {
+                        text: 'Revisás los restos esparcidos por la playa',
                         next: 'E0'
                     }
                 ]

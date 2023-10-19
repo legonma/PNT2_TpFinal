@@ -1,0 +1,25 @@
+.Header {
+    display: flex;
+    width: 100%;
+    height: 178px;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.loginButton {
+    background-image: url('../../Assets/LoginImage.png');
+    background-color: unset;
+    background-repeat: no-repeat;
+    border: none;
+    width: 155px;
+    height: 125px;
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.48);
+}
+
+.loginButton span {
+    font-family: 'Young Serif';
+    font-size: 20px;
+    top: -40px;
+    color: #342b2b;
+    position: relative;
+}

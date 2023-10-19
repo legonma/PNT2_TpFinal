@@ -16,13 +16,17 @@ export default function CardAnswer({answers, handler}) {
     return (
         <div className="CardAnswer">
             <div className="Content">
+                <div className="Miselan"></div>
                 <ul>
                     {answers.map((aswr, index) => (
                         <li key={index}>
-                            <button onClick={() => handleOnClick(aswr.next)}>{aswr.text}</button>
+                            <button className="AnswerButton" onClick={() => handleOnClick(aswr.next)}>
+                                <span className="AnswerText">{aswr.text}</span>
+                            </button>
                         </li>
                     ))}
                 </ul>
+                <div className="Miselan"></div>
             </div>
         </div>
     )
