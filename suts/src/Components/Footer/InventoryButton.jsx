@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { CardContext } from '../Cards/Context/CardContext';
+import './InventoryButton.css';
 
 export default function InventroyButton ({data, handleAnswerClick}) {
     const {flipCard} = useContext(CardContext)
@@ -13,9 +14,9 @@ export default function InventroyButton ({data, handleAnswerClick}) {
     };
 
     return(
-        <div className="Inventory">
+        <div className="Footer">
             <div className="Container">
-                <button onClick={() => handleOnClick('Inventory')}>Inventory</button>
+                <button className="Inventory" onClick={() => handleOnClick('Inventory')}>Inventory</button>
             </div>
         </div>
     );

@@ -1,27 +1,51 @@
 import React from "react";
 import { useContext } from "react";
 import { CardContext } from './Context/CardContext';
-import './CardAnswer.css'
+import './CardInventory.css'
+import { useState } from "react";
+import { useEffect } from "react";
+import apple from '../../Assets/appleItem.webp';
+import appleCard from '../../Assets/appleItem.png';
 
 export default function CardInventory({handler}) {
-    // --- Si es que necesito dar vuelta la carta uso context. por ahora no se que carajos voy a hacer aca
-    //const {flipCard} = useContext(CardContext)
+const [inventoryContainer, setinventoryContainer] = useState([])
+const [items, setItems] = useState([{
+    img: apple,
+    count: 1,
+    imgCard: appleCard,
+    text:'hola, soy un maniqui'
+}]);
 
-/*     const handleOnClick = (nextScene) => {
-        // me imagino que cuando haga click en login y se acepte todo me va a la escena que estaba.
-        // ver como implemente en Answer que creo que lo resolvi bien ahi.
-    }; */
+const handleOnClick = (item) => {
+    setTimeout(() => {
+        handler.handleInventoryClick(item.text, item.imgCard);
+    }, 1200);
+};
 
-/* 
-    -----Manejar submitted y errores.. podemos agregar un mensaje cuando hay error con un div. asi no abusamos del alert
-    const [errorMessages, setErrorMessages] = useState({});
-    const [isSubmitted, setIsSubmitted] = useState(false);   
-*/
+useEffect(() => {
+    const tempItems = [];
+    for (let i = 0; i < 16; i++) {
+        if (items[i]) {
+            const item = items[i];
+            tempItems.push(
+                <button key={i} style={{backgroundImage: `url(${items[i].img})`}}  onClick={() => handleOnClick({item})}>
+                    <span>{items[i].count}</span>
+                </button>
+            )
+        } else {
+            tempItems.push(
+                <button key={i} disabled='disabled' className="block"></button>
+            )
+        }
+    }
+    setinventoryContainer(tempItems)
+}, [])
 
     return (
         <div className="CardInventory">
             <div className="Content">
-                <div></div>
+                <div className="InventoryGrid">{inventoryContainer}
+                </div>
             </div>
         </div>
     )

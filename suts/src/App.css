@@ -11,3 +11,7 @@
   background-size: 128vw;
   filter: blur(0.4px);
 }
+
+button {
+  cursor: pointer;
+}

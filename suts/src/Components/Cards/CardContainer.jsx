@@ -24,7 +24,7 @@ export default function CardContainer({scene, data, handleAnswerClick}) {
         } else if (scene === 'Inventory') {
             setCardContainer([
                 <CardBase key='inventory' data={{type: 'inventory', inventory, handler: {handleAnswerClick}}} delay={500}/>,
-                <CardBase key='inventoryMiddle' data={{type: 'default'}} delay={750}  noFlip={true}/>,
+                <CardBase key='inventoryMiddle' data={{type: 'inventoryDescription'}} delay={750}/>,
                 <CardBase key='inventoryRight' data={{type: 'default'}} delay={1000} noFlip={true}/>
             ])
         }

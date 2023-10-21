@@ -1,0 +1,10 @@
+.Inventory {
+    background-image: url('../../Assets/bag.png');
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 70px;
+    margin-top: 10px;
+    background-color: unset;
+    border: none;
+    content-visibility: hidden;
+}

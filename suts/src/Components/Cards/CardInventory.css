@@ -1,0 +1,43 @@
+.CardInventory {
+    justify-content: center;
+    background-image: url('../../Assets/CardInventory.png');
+    background-position-y: -3px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 340px;
+    height: 542px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.CardInventory .Content {
+    width: 276px;
+    height: 420px;
+}
+
+.InventoryGrid {
+    width: 276px;
+    height: 280px;
+    display: grid;
+    grid-template-columns: 70px 70px 70px 70px;
+}
+
+.InventoryGrid > button {
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: 1px solid #24201f;
+    padding: 6px;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-size: 57px;
+    mix-blend-mode: multiply;
+}
+
+.InventoryGrid .block {
+    border: 1px solid grey;
+    cursor: default;
+}
