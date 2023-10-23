@@ -1,13 +1,67 @@
 .CardLogin {
     justify-content: center;
-    background-image: url('../../Assets/HistoryCard.png');
+    background-image: url('../../Assets/TextCard2.png');
     background-position-y: -3px;
     background-size: cover;
     background-repeat: no-repeat;
     width: 340px;
     height: 542px;
 }
+
+.CardLogin form {
+
+}
+
 .CardLogin .Content {
-    margin-top: 170px;
-    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 340px;
+    height: 542px;
+}
+
+.CardLogin .input-container label {
+    margin: 12px 0 3px 0;
+    display: block;
+    font-family: 'Young Serif';
+    font-size: 16px;
+    color: #342b2b;
+}
+
+.CardLogin .input-container input {
+    background-color: #ffffff94;
+    border: 1px solid #37333378;
+    height: 22px;
+    border-radius: 4px;
+}
+
+.CardLogin .button-container {
+    margin-top: 20px;
+}
+
+.button-container input {
+    background-image: url('../../Assets/submit.png');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    width: 90px;
+    height: 29px;
+    font-family: 'Young Serif';
+    font-size: 14px;
+    top: -10px;
+    color: #342b2b;
+    position: relative;
+    border-radius: 5px;
+}
+
+.CrearCuenta {
+    background-color: unset;
+    border: none;
+    color: #3F51B5;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 50px;
 }

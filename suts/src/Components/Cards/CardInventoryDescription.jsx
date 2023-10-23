@@ -1,11 +1,15 @@
 import React from "react";
-import { useContext } from "react";
-import { CardContext } from './Context/CardContext';
-import './CardInventory.css'
-import { useState } from "react";
-import { useEffect } from "react";
-import apple from '../../Assets/appleItem.webp';
-import appleCard from '../../Assets/appleItem.png';
+import './CardInventoryDescription.css';
 
-export default function CardInventoryDescription({handler}) {
+export default function CardInventoryDescription({item}) {
+    console.log(item)
+    const {text, imgCard} = item
+    return(
+        <div className='CardInventoryDescription'>
+            <div className='Content'>
+                <img src={imgCard}/>
+                <p>{text}</p>
+            </div>
+        </div>
+    );
 }

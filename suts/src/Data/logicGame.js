@@ -113,3 +113,12 @@ const logicGame = {
   };
   
 export default logicGame
+
+/* 
+{
+    nombre:
+    password:
+    inventario :
+    escena: E1
+    vida: minumber - n
+} */

@@ -2,10 +2,23 @@ import React from "react";
 import { useContext } from "react";
 import { CardContext } from './Context/CardContext';
 import './CardLogin.css'
+import { useState } from "react";
 
 export default function CardLogin({login}) {
     // --- Si es que necesito dar vuelta la carta uso context. por ahora no se que carajos voy a hacer aca
     //const {flipCard} = useContext(CardContext)
+    const [method , setMethod] = useState('get');
+    const [text, setText] = useState('crear');
+
+    const switchMethod = (evt) => {
+        if (method === 'post') {
+            setMethod('get');
+            setText('crear');
+        } else {
+            setMethod('post');
+            setText('login');
+        }
+    }
 
     const handleOnClick = (nextScene) => {
         // me imagino que cuando haga click en login y se acepte todo me va a la escena que estaba.
@@ -21,19 +34,20 @@ export default function CardLogin({login}) {
     return (
         <div className="CardLogin">
             <div className="Content">
-                <form onSubmit={handleOnClick}>
+                <form onSubmit={handleOnClick} action="api/users" method={method}>
                     <div className="input-container">
-                        <label>Username </label>
-                        <input type="text" name="uname" required />
+                        <label htmlFor="username">Username </label>
+                        <input type="text" name="uname" required id="username" />
                     </div>
                     <div className="input-container">
-                        <label>Password </label>
-                        <input type="password" name="pass" required />
+                        <label htmlFor="password">Password </label>
+                        <input type="password" name="pass" required id="password"/>
                     </div>
                     <div className="button-container">
                         <input type="submit" />
                     </div>
                 </form>
+                <button onClick = {() => switchMethod({method})} className="CrearCuenta">{text} cuenta</button>
             </div>
         </div>
     )

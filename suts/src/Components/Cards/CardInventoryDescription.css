@@ -1,0 +1,23 @@
+.CardInventoryDescription {
+    background-image: url('../../Assets/CardInventory.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 340px;
+    height: 542px;
+}
+
+.CardInventoryDescription .Content {
+    margin: 80px 35px;
+}
+
+.CardInventoryDescription .Content p {
+    padding: 30px 20px 0;
+    height: 235px;
+    overflow: hidden;
+}
+
+.CardInventoryDescription .Content h2 {
+    font-family: 'Young Serif', serif;
+    color: #ebe3e3;
+    text-align: center;
+}

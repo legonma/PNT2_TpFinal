@@ -5,9 +5,10 @@ import CardAnswer from "./CardAnswer";
 import CardLogin from "./CardLogin";
 import CardInventory from "./CardInventory";
 import CardSettings from "./CardSettings";
+import CardInventoryDescription from "./CardInventoryDescription";
 
 export default function CardFactory({data}) {
-    const {type, history, image, answers, handler, handlerInvent, login} = data;
+    const {type, history, image, answers, handler, handlerInvent, login, item} = data;
     switch (type) {
         case 'history':
             return <CardHistory history={history}/>
@@ -21,9 +22,9 @@ export default function CardFactory({data}) {
             return <CardSettings/>
         case 'inventory':
             return <CardInventory handler = {handlerInvent}/>
-/*         case 'inventoryDescription':
-            return <CardInventoryDescription handler = {handlerInvent}/>
- */        default:
+        case 'inventoryDescription':
+            return <CardInventoryDescription item = {item}/>
+        default:
             return null// aca va el default es la carta;
     }
 }

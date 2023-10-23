@@ -7,6 +7,12 @@ import './CardContainer.css';
 export default function CardContainer({scene, data, handleAnswerClick}) {
     const {history, image, answers, login, inventory} = data.content;
     const [cardContainer, setCardContainer] = useState([]);
+    const [item, setItem] = useState([]);
+
+    const handleInventoryClick = (text, img) => {
+        setItem({text: text, imgCard: img})
+        console.log(item)
+    }
 
     useEffect(() => {
         if (scene.charAt() === 'E') {
@@ -23,8 +29,8 @@ export default function CardContainer({scene, data, handleAnswerClick}) {
             ])
         } else if (scene === 'Inventory') {
             setCardContainer([
-                <CardBase key='inventory' data={{type: 'inventory', inventory, handler: {handleAnswerClick}}} delay={500}/>,
-                <CardBase key='inventoryMiddle' data={{type: 'inventoryDescription'}} delay={750}/>,
+                <CardBase key='inventory' data={{type: 'inventory', inventory, handler: {handleInventoryClick}}} delay={500}/>,
+                <CardBase key='inventoryDescription' data={{type: 'inventoryDescription', item: item}} delay={750}/>,
                 <CardBase key='inventoryRight' data={{type: 'default'}} delay={1000} noFlip={true}/>
             ])
         }
