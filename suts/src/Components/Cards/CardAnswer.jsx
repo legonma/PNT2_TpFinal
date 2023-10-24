@@ -4,7 +4,7 @@ import { CardContext } from './Context/CardContext';
 import './CardAnswer.css';
 import audioHoverButton from '../../Audio/audioHoverButton.mp3';
 
-export default function CardAnswer({answers, handler}) {
+export default function CardAnswer({answers, handler, user}) {
     const {flipCard} = useContext(CardContext)
 
     const handleOnClick = (nextScene) => {

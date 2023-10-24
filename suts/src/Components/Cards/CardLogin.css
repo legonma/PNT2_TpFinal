@@ -41,7 +41,7 @@
     margin-top: 20px;
 }
 
-.button-container input {
+.button-container button {
     background-image: url('../../Assets/submit.png');
     background-color: transparent;
     background-repeat: no-repeat;
