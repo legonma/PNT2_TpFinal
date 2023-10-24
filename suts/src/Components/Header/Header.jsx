@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { CardContext } from '../Cards/Context/CardContext';
 import './Header.css';
 
-export default function Header ({data, handleAnswerClick}) {
+export default function Header ({handleAnswerClick}) {
     const {flipCard} = useContext(CardContext)
 
     const handleOnClick = (nextScene) => {
