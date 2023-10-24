@@ -1,7 +1,6 @@
 import React from "react";
 import './CardLogin.css'
 import { useState } from "react";
-import FormData from "form-data";
 
 export default function CardLogin({login, handler}) {
     // --- Si es que necesito dar vuelta la carta uso context. por ahora no se que carajos voy a hacer aca
@@ -23,14 +22,13 @@ export default function CardLogin({login, handler}) {
         //catch user and pass
         event.preventDefault();
         const form = event.target;
-        const formData = new FormData(form);
-        handler.handleLoginClick(formData);
+        handler.handleLoginClick(form);
     };
 
     return (
         <div className="CardLogin">
             <div className="Content">
-                <form onSubmit={handleOnClick} action="api/users" method={method}>
+                <form onSubmit={handleOnClick} action="api/users" method={method} autoComplete='off'>
                     <div className="input-container">
                         <label htmlFor="username">Username </label>
                         <input type="text" name="uname" required id="username" />
@@ -43,6 +41,11 @@ export default function CardLogin({login, handler}) {
                         <button>submit</button>
                     </div>
                 </form>
+                <div id="msgError">
+                    <p>Usuario no encontrado
+                    <br></br>
+                    pruebe creando una cuenta</p>
+                </div>
                 <button onClick = {() => switchMethod({method})} className="CrearCuenta">{text} cuenta</button>
             </div>
         </div>

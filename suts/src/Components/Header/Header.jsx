@@ -3,14 +3,17 @@ import { useContext } from "react";
 import { CardContext } from '../Cards/Context/CardContext';
 import './Header.css';
 
-export default function Header ({handleAnswerClick}) {
+export default function Header ({handleAnswerClick}, isLoged) {
     const {flipCard} = useContext(CardContext)
 
     const handleOnClick = (nextScene) => {
-        flipCard()
-        setTimeout(() => {
-            handleAnswerClick(nextScene);
-        }, 1200);
+        // sacar el tru para conseguir un boton fijo
+        if (!isLoged) {
+            flipCard()
+            setTimeout(() => {
+                handleAnswerClick(nextScene);
+            }, 1200);    
+        }
     };
 
     return(
