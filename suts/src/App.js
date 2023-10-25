@@ -50,6 +50,10 @@ function App() {
         setCurrentUser(res.data);
     }
 
+    const deletUser = async () => {
+        await axios.delete(`http://localhost:8080/api/users/${currentUser.id}`);
+    }
+
     const addMessageError = () => {
         let msgError = document.getElementById('msgError');
         msgError.style.visibility = 'unset';
@@ -58,7 +62,12 @@ function App() {
     // ----------------------------SCENES -------------------
     const setScenes = async (escene) => {
         try {
-            const res = await axios.get(`http://localhost:8080/api/game/escene/${escene}`);
+            let newEscene = escene;
+            if (escene === "Dead") {
+                //podriamos tener una carta de muerte! donde no podes salir y solo un boton de eliminar que elimina
+                newEscene = "Login";
+            }
+            const res = await axios.get(`http://localhost:8080/api/game/escene/${newEscene}`);
             setCurrentScene(res.data);
             setIsDataLoaded(true);
         } catch(error) {
@@ -76,9 +85,12 @@ function App() {
     };
 
     const handleAnswerClick = async (nextScene) => {
+        if (nextScene === "Dead") {
+            await deletUser();
+            await setScenes("Login");
+        }
         await putUser(nextScene);
         await setScenes(nextScene);
-
     };
 
 /*     const currentData = logicGame.scenes[currentScene]; */
