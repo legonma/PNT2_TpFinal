@@ -7,18 +7,14 @@ import { useEffect } from "react";
 import apple from '../../Assets/appleItem.webp';
 import appleCard from '../../Assets/appleItem.png';
 
-export default function CardInventory({handler}) {
+export default function CardInventory({handler, user}) {
 const [inventoryContainer, setinventoryContainer] = useState([])
-const [items, setItems] = useState([{
-    img: apple,
-    count: 1,
-    imgCard: appleCard,
-    text:'hola, soy un maniqui'
-}]);
+debugger;
+const [items, setItems] = useState(user.currentUser.inventory);
 
 const handleOnClick = (item) => {
     setTimeout(() => {
-        handler.handleInventoryClick(item.text, item.imgCard);
+        handler.handleInventoryClick(item);
     }, 1200);
 };
 

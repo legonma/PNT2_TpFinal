@@ -1,3 +1,4 @@
+//Borrar
 import React from "react";
 import { useContext } from "react";
 import { CardContext } from '../Cards/Context/CardContext';
@@ -9,7 +10,7 @@ export default function InventroyButton ({data, handleAnswerClick}) {
     const handleOnClick = (nextScene) => {
         flipCard()
         setTimeout(() => {
-            handleAnswerClick(nextScene);
+            handleAnswerClick({next:nextScene});
         }, 1200);
     };
 

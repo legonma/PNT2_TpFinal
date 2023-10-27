@@ -45,8 +45,8 @@ function App() {
         return await axios.post(`http://localhost:8080/api/users/`, {"uname": user.get('uname'), "pass": user.get('pass')});
     }
 
-    const putUser = async (escene) => {
-        const res = await axios.put(`http://localhost:8080/api/users/${currentUser.id}`, {escene: escene})
+    const putUser = async (escene, inventory) => {
+        const res = await axios.put(`http://localhost:8080/api/users/${currentUser.id}`, {escene: escene, inventory: inventory})
         setCurrentUser(res.data);
     }
 
@@ -84,13 +84,14 @@ function App() {
         getOrUpdateUser(form);
     };
 
-    const handleAnswerClick = async (nextScene) => {
-        if (nextScene === "Dead") {
+    const handleAnswerClick = async (answr) => {
+        const {next, inventory} = answr;
+        if (next === "Dead") {
             await deletUser();
             await setScenes("Login");
         }
-        await putUser(nextScene);
-        await setScenes(nextScene);
+        await putUser(next, inventory);
+        await setScenes(next);
     };
 
 /*     const currentData = logicGame.scenes[currentScene]; */
@@ -104,7 +105,7 @@ function App() {
             <CardProvider>
                 <Header handleAnswerClick={handleAnswerClick} isLoged = {isLoged}/>
                 <CardContainer scene={currentScene} handleAnswerClick={handleAnswerClick} handleLoginClick={handleLoginClick} user={{currentUser, setCurrentUser}}/>
-                <InventroyButton handleAnswerClick={handleAnswerClick}/>
+                {/* <InventroyButton handleAnswerClick={handleAnswerClick}/> */}
             </CardProvider>
         </div>
     );

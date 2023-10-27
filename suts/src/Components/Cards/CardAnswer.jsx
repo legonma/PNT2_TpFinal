@@ -7,10 +7,12 @@ import audioHoverButton from '../../Audio/audioHoverButton.mp3';
 export default function CardAnswer({answers, handler, user}) {
     const {flipCard} = useContext(CardContext)
 
-    const handleOnClick = (nextScene) => {
-        flipCard()
+    const handleOnClick = (answr) => {
+        if (!answr.noFlip) {
+            flipCard()
+        }
         setTimeout(() => {
-            handler.handleAnswerClick(nextScene);
+            handler.handleAnswerClick(answr);
         }, 1200);
     };
 
@@ -26,7 +28,7 @@ export default function CardAnswer({answers, handler, user}) {
                 <ul>
                     {answers.map((aswr, index) => (
                         <li key={index}>
-                            <button className="AnswerButton" onClick={() => handleOnClick(aswr.next)} onMouseEnter={playHoverSound}>
+                            <button className="AnswerButton" onClick={() => handleOnClick(aswr)} onMouseEnter={playHoverSound}>
                                 <span className="AnswerText">{aswr.text}</span>
                             </button>
                         </li>
@@ -34,6 +36,7 @@ export default function CardAnswer({answers, handler, user}) {
                 </ul>
                 <div className="Miselan"></div>
             </div>
+            <button className="ButtonInventory" onClick={() => handleOnClick({next:'Inventory'})}><span className="InventaryText">Inventario</span></button>
         </div>
     )
 }

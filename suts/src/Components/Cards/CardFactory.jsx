@@ -21,9 +21,9 @@ export default function CardFactory({data}) {
         case 'settings':
             return <CardSettings/>
         case 'inventory':
-            return <CardInventory handler = {handlerInvent}/>
+            return <CardInventory handler = {handlerInvent} user={user}/>
         case 'inventoryDescription':
-            return <CardInventoryDescription item = {item}/>
+            return <CardInventoryDescription handler = {handlerInvent} item = {item}/>
         default:
             return null// aca va el default es la carta;
     }

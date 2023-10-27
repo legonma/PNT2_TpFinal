@@ -9,7 +9,13 @@
 }
 
 .CardAnswer .Content {
-    margin-top: 170px;
+    text-align: center;
+    height: 542px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .CardAnswer .Content ul {
@@ -54,4 +60,19 @@
     background-size: 200px;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.CardAnswer .ButtonInventory {
+    background-image: url('../../Assets/Invetnario3.png');
+    background-repeat: no-repeat;
+    background-color: unset;
+    border: none;
+    background-size: contain;
+    width: 180px;
+    height: 33px;
+    color: #e5e4db;
+    position: absolute;
+    left: 80px;
+    bottom: 110px;
+    font-family: 'Young Serif';
 }
