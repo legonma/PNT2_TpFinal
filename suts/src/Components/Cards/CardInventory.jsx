@@ -24,13 +24,15 @@ useEffect(() => {
         if (items[i]) {
             const item = items[i];
             tempItems.push(
-                <button key={i} style={{backgroundImage: `url(${items[i].img})`}}  onClick={() => handleOnClick({item})}>
+                <button key={i} style={{backgroundImage: `url(${items[i].img})`}}  onClick={() => handleOnClick({item})} className="Item">
                     <span>{items[i].count}</span>
                 </button>
             )
         } else {
             tempItems.push(
-                <button key={i} disabled='disabled' className="block"></button>
+                <div key={i} className="blockContainer">
+                    <button key={i} disabled='disabled' className="block"></button>
+                </div>
             )
         }
     }

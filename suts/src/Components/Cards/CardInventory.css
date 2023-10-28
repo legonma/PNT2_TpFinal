@@ -1,6 +1,6 @@
 .CardInventory {
     justify-content: center;
-    background-image: url('../../Assets/CardInventory.png');
+    background-image: url('../../Assets/TextCard2.png');
     background-position-y: -3px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -14,30 +14,54 @@
 }
 
 .CardInventory .Content {
-    width: 276px;
-    height: 420px;
+    width: 255px;
+    height: 280px;
 }
 
 .InventoryGrid {
-    width: 276px;
-    height: 280px;
+    width: 255px;
+    height: 278px;
     display: grid;
-    grid-template-columns: 70px 70px 70px 70px;
+    grid-template-columns: 65px 65px 65px 65px;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.InventoryGrid > button {
+.InventoryGrid .Item {
     width: 60px;
     height: 60px;
     background-color: transparent;
-    border: 1px solid #24201f;
+    border: 2px dotted #b74427;
     padding: 6px;
     border-radius: 5px;
     background-repeat: no-repeat;
-    background-size: 57px;
-    mix-blend-mode: multiply;
+    background-size: contain;
+    background-position: center;
+    mix-blend-mode: luminosity;
 }
 
 .InventoryGrid .block {
-    border: 1px solid grey;
     cursor: default;
+    width: 60px;
+    height: 60px;
+    background-color: #8f8f8f29;
+    border: inset;
+    padding: 6px;
+    border-radius: 5px;
+    box-shadow: inset 2px 2px 2px 1px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    mix-blend-mode: multiply;
+}
+
+.InventoryGrid .blockContainer {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ffffff96;
+    border-left: none;
+    border-radius: 7px;
+    border-top: none;
+    
 }

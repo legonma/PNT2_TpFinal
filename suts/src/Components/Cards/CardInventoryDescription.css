@@ -1,23 +1,51 @@
 .CardInventoryDescription {
-    background-image: url('../../Assets/CardInventory.png');
+    background-image: url('../../Assets/TextCard2.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 340px;
     height: 542px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .CardInventoryDescription .Content {
-    margin: 80px 35px;
+    width: 300px;
+    height: 339px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .CardInventoryDescription .Content p {
-    padding: 30px 20px 0;
-    height: 235px;
-    overflow: hidden;
+    padding: 0px 20px 0;
+    height: 95px;
+    font-family: monospace;
+    width: 210px;
+    color: #404040;
 }
 
-.CardInventoryDescription .Content h2 {
-    font-family: 'Young Serif', serif;
-    color: #ebe3e3;
-    text-align: center;
+.CardInventoryDescription .Content h1 {
+    position: relative;
+    font-size: 22px;
+    font-family: 'Young Serif';
+    color: #634b4b;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.CardInventoryDescription img {
+    height: 180px;
+}
+
+.CardInventoryDescription .Empty {
+    width: 340px;
+    height: 542px;
+    background-image: url('../../Assets/TextCard5.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }

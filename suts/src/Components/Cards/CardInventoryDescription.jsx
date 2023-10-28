@@ -1,28 +1,29 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect , useState} from "react";
 import './CardInventoryDescription.css';
 
 export default function CardInventoryDescription({item}) {
-    const {text, title, img} = item
-    debugger;
-
+    const [inventoryContainer, setinventoryContainer] = useState([])
+    
     useEffect(() => {
-        debugger;
-        let card = 
-        <div className='Content'>
-            <h1 value = {title}></h1>
-            <img src={img}/>
-            <p>{text}</p>
-        </div>
+        let content = [];
+        if (Object.keys(item).length) {
+            const {text, imgDesc, title} = item.item;
+            debugger;
+            content.push(
+            <div key="content" className='Content'>
+                <img key="image" src={imgDesc}/>
+                <h1 key="title">{title}</h1>
+                <p key="text">{text}</p>
+            </div>)
+        } else {
+            content.push(<div className="Empty" key="error">error</div>)
+        }
+        setinventoryContainer(content)
     }, [item])
 
     return(
-        <div className='CardInventoryDescription'>
-            <div className='Content'>
-                <h1 value = {title}></h1>
-                <img src={img}/>
-                <p>{text}</p>
-            </div>
+        <div className='CardInventoryDescription'>{inventoryContainer}
         </div>
     );
 }

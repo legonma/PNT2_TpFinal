@@ -10,9 +10,7 @@ export default function CardContainer({scene, handleAnswerClick, handleLoginClic
     const [item, setItem] = useState({});
 
     const handleInventoryClick = (item) => {
-        debugger;
-        setItem({item})
-        console.log(item)
+        setItem(item)
     }
 
     useEffect(() => {
@@ -35,7 +33,7 @@ export default function CardContainer({scene, handleAnswerClick, handleLoginClic
                 <CardBase key='inventoryRight' data={{type: 'default'}} delay={1000} noFlip={true}/>
             ])
         }
-    }, [handleLoginClick, handleAnswerClick, history, image, answers, user])
+    }, [handleLoginClick, handleAnswerClick, item, history, image, answers, user])
 
     return(
         <div className="CardContainer">{cardContainer}

@@ -90,7 +90,8 @@ function App() {
             await deletUser();
             await setScenes("Login");
         }
-        await putUser(next, inventory);
+
+        await putUser(next, inventory || []);
         await setScenes(next);
     };
 
