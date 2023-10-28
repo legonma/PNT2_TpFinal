@@ -41,6 +41,10 @@ function App() {
         return await axios.get(`http://localhost:8080/api/users/${user.get('uname')}`);
     }
 
+    const getItem = async (id) => {
+        return await axios.get(`http://localhost:8080/api/items/${id}`);
+    }
+
     const postUser = async (user) => {
         return await axios.post(`http://localhost:8080/api/users/`, {"uname": user.get('uname'), "pass": user.get('pass')});
     }
@@ -85,13 +89,18 @@ function App() {
     };
 
     const handleAnswerClick = async (answr) => {
-        const {next, inventory} = answr;
+        const {next, itemId} = answr;
         if (next === "Dead") {
             await deletUser();
             await setScenes("Login");
+            return;
         }
-
-        await putUser(next, inventory || []);
+        let inventory;
+        if (itemId) {
+            let item = await getItem(itemId);
+            inventory = [item.data];
+        };
+        await putUser(next, inventory);
         await setScenes(next);
     };
 

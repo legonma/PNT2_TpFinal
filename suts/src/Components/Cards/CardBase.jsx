@@ -2,6 +2,7 @@ import CardFactory from "./CardFactory";
 import './CardBase.css';
 import { useContext, useEffect, useState } from "react";
 import { CardContext } from './Context/CardContext';
+import audioHoverButton from '../../Audio/flipBack.mp3';
 
 export default function CardBase({data, delay, noFlip}) {
     const {cardFlipped, flipCard} = useContext(CardContext);
@@ -10,10 +11,14 @@ export default function CardBase({data, delay, noFlip}) {
     const flipBack = () => {
         setCard('CardFlipped');
     }
+
     const flipFront = () => {
         if (!noFlip) {
             setCard('Card');
+            const audio = new Audio(audioHoverButton)
+            audio.play();   
         }
+ 
     }
         
     useEffect(() => {

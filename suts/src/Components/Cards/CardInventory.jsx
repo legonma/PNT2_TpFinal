@@ -9,10 +9,9 @@ import appleCard from '../../Assets/appleItem.png';
 
 export default function CardInventory({handler, user}) {
 const [inventoryContainer, setinventoryContainer] = useState([])
-debugger;
 const [items, setItems] = useState(user.currentUser.inventory);
 
-const handleOnClick = (item) => {
+const handleOnClick = (item, key) => {
     setTimeout(() => {
         handler.handleInventoryClick(item);
     }, 1200);
@@ -24,8 +23,10 @@ useEffect(() => {
         if (items[i]) {
             const item = items[i];
             tempItems.push(
-                <button key={i} style={{backgroundImage: `url(${items[i].img})`}}  onClick={() => handleOnClick({item})} className="Item">
-                    <span>{items[i].count}</span>
+                <button key={i} id={i} style={{backgroundImage: `url(${items[i].img})`}}  onClick={() => handleOnClick({item}, i)} className="Item">
+                    <div className="CountContainer">
+                        <span className="CountNumber">{items[i].count}</span>
+                    </div>
                 </button>
             )
         } else {

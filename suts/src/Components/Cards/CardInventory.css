@@ -38,7 +38,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    mix-blend-mode: luminosity;
+    mix-blend-mode: unset;
 }
 
 .InventoryGrid .block {
@@ -63,5 +63,22 @@
     border-left: none;
     border-radius: 7px;
     border-top: none;
-    
+}
+
+.InventoryGrid .CountContainer {
+    width: 51px;
+    height: 51px;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
+
+.InventoryGrid .CountContainer .CountNumber {
+    width: 16px;
+    height: 15px;
+    color: #000000;
+    font-family: monospace;
+    background-color: #ffffffcc;
+    border-radius: 4px;
 }
