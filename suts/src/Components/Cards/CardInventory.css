@@ -20,7 +20,7 @@
 
 .InventoryGrid {
     width: 255px;
-    height: 278px;
+    height: 200px;
     display: grid;
     grid-template-columns: 65px 65px 65px 65px;
     justify-items: center;
@@ -81,4 +81,19 @@
     font-family: monospace;
     background-color: #ffffffcc;
     border-radius: 4px;
+}
+
+.CardInventory .ButtonInventory {
+    background-image: url('../../Assets/Invetnario2.png');
+    background-repeat: no-repeat;
+    background-color: unset;
+    border: none;
+    background-size: contain;
+    width: 180px;
+    height: 33px;
+    color: #e5e4db;
+    position: absolute;
+    left: 80px;
+    bottom: 145px;
+    font-family: 'Young Serif';
 }

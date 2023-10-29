@@ -90,18 +90,27 @@ function App() {
 
     const handleAnswerClick = async (answr) => {
         const {next, itemId} = answr;
-        if (next === "Dead") {
-            await deletUser();
-            await setScenes("Login");
-            return;
-        }
         let inventory;
         if (itemId) {
             let item = await getItem(itemId);
             inventory = [item.data];
         };
-        await putUser(next, inventory);
-        await setScenes(next);
+        // viene una escena.. tipo E0
+        // NO HACE PUT tambien puede venir Inventario.. y de ser asi tiene que ir con setScenes. no hacer un put en escene y tampoco en invent
+        // de ser BackToEscene pasa lo mismo, no tiene que hacer un put en escene pero si en invent
+        // CurrentUser.escene es la ultima escena guardada en el user
+        if (next === 'Inventory') {
+            await setScenes(next);
+        } else if (next === 'BackToEscene') {
+            await putUser(currentUser.escene, inventory);
+            await setScenes(currentUser.escene);    
+        } else if (next === "Dead") {
+            await deletUser();
+            await setScenes("Login");
+        } else {
+            await putUser(next, inventory);
+            await setScenes(next);
+        }
     };
 
 /*     const currentData = logicGame.scenes[currentScene]; */

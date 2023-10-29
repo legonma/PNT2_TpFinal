@@ -4,26 +4,34 @@ import { CardContext } from './Context/CardContext';
 import './CardInventory.css'
 import { useState } from "react";
 import { useEffect } from "react";
-import apple from '../../Assets/appleItem.webp';
-import appleCard from '../../Assets/appleItem.png';
 
-export default function CardInventory({handler, user}) {
+export default function CardInventory({handler, handlerAnswer, user}) {
 const [inventoryContainer, setinventoryContainer] = useState([])
 const [items, setItems] = useState(user.currentUser.inventory);
+const {flipCard} = useContext(CardContext);
 
-const handleOnClick = (item, key) => {
+const handleItemOnClick = (item, key) => {
     setTimeout(() => {
         handler.handleInventoryClick(item);
     }, 1200);
 };
 
+const handleOnClick = (answr) => {
+    if (!answr.noFlip) {
+        flipCard()
+    }
+    setTimeout(() => {
+        handlerAnswer.handleAnswerClick(answr);
+    }, 1200);
+};
+
 useEffect(() => {
     const tempItems = [];
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 12; i++) {
         if (items[i]) {
             const item = items[i];
             tempItems.push(
-                <button key={i} id={i} style={{backgroundImage: `url(${items[i].img})`}}  onClick={() => handleOnClick({item}, i)} className="Item">
+                <button key={i} id={i} style={{backgroundImage: `url(${items[i].img})`}}  onClick={() => handleItemOnClick({item}, i)} className="Item">
                     <div className="CountContainer">
                         <span className="CountNumber">{items[i].count}</span>
                     </div>
@@ -46,6 +54,7 @@ useEffect(() => {
                 <div className="InventoryGrid">{inventoryContainer}
                 </div>
             </div>
+            <button className="ButtonInventory" onClick={() => handleOnClick({next:'BackToEscene'})}><span className="InventaryText">Back</span></button>
         </div>
     )
 }

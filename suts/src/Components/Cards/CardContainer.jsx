@@ -28,7 +28,7 @@ export default function CardContainer({scene, handleAnswerClick, handleLoginClic
             ])
         } else if (scene.cards === 'Inventory') {
             setCardContainer([
-                <CardBase key='inventory' data={{type: 'inventory', inventory, handlerInvent: {handleInventoryClick}, user:user}} delay={500}/>,
+                <CardBase key='inventory' data={{type: 'inventory', inventory, handlerInvent: {handleInventoryClick}, handler: {handleAnswerClick}, user:user}} delay={500}/>,
                 <CardBase key='inventoryDescription' data={{type: 'inventoryDescription', item: item}} delay={750}/>,
                 <CardBase key='inventoryRight' data={{type: 'default'}} delay={1000} noFlip={true}/>
             ])
