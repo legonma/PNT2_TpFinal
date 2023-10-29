@@ -1,5 +1,5 @@
 .CardHistory {
-    background-image: url('../../Assets/TextCard6V.png');
+    background-image: url('../../Assets/TextCard6A.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 340px;
@@ -18,7 +18,7 @@
 
 .CardHistory .Content h2 {
     font-family: 'Young Serif', serif;
-    color: #53628e;
+    color: #763e3e;
     text-align: center;
     position: relative;
     top: 26px;

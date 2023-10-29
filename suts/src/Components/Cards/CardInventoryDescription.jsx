@@ -9,7 +9,6 @@ export default function CardInventoryDescription({item}) {
         let content = [];
         if (Object.keys(item).length) {
             const {text, imgDesc, title} = item.item;
-            debugger;
             content.push(
             <div key="content" className='Content'>
                 <img key="image" src={imgDesc}/>

@@ -13,7 +13,7 @@ const {flipCard} = useContext(CardContext);
 const handleItemOnClick = (item, key) => {
     setTimeout(() => {
         handler.handleInventoryClick(item);
-    }, 1200);
+    }, 300);
 };
 
 const handleOnClick = (answr) => {
