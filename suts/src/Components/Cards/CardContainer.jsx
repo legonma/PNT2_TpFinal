@@ -9,17 +9,32 @@ export default function CardContainer({scene, handleAnswerClick, handleLoginClic
     const [cardContainer, setCardContainer] = useState([]);
     const [item, setItem] = useState({});
 
+    const speech = window.speechSynthesis;
+    const msg = new SpeechSynthesisUtterance()
+    msg.lang = 'es-ES';
+
+    const readToMe = ()=> {
+        debugger;
+        let voice = speech.getVoices();
+        msg.voice = voice[5];
+        msg.text = history.text;
+        speech.speak(msg)
+    }
+
     const handleInventoryClick = (item) => {
         setItem(item)
     }
 
     useEffect(() => {
+        debugger;
+        speech.cancel();
         if (scene.cards.charAt() === 'E') {
             setCardContainer([
                 <CardBase key='history' data={{type: 'history', history}} delay={500}/>,
                 <CardBase key='image' data={{type: 'image', image}} delay={750}/>,
                 <CardBase key='answers' data={{type: 'answers', answers, handler: {handleAnswerClick}, user}} delay={1000}/>
             ])
+            readToMe();
         } else if (scene.cards === 'Login') {
             setCardContainer([
                 <CardBase key='loginLeft' data={{type: 'default'}} delay={500} noFlip={true}/>,
