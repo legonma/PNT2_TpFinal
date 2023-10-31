@@ -24,3 +24,21 @@
     top: 26px;
     font-size: 21px;
 }
+
+.CardHistory .Parrot {
+    background-image: url('../../Assets/parrot.png');
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    background-color: #ffeed8;
+    border-radius: 20px;
+    border: 1px solid #292929;
+    position: absolute;
+    bottom: 20px;
+    left: 149px;
+    box-shadow: 0px 2px 3px;
+}
+
+.CardHistory .ParrotHidden {
+    visibility: hidden;
+}

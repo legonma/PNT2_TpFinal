@@ -15,9 +15,11 @@ export default function CardBase({data, delay, noFlip}) {
     const flipFront = () => {
         if (!noFlip) {
             setCard('Card');
-/*             const audio = new Audio(audioHoverButton)
+/*          
+            const audio = new Audio(audioHoverButton)
             audio.muted = muted;
-            audio.play();    */
+            audio.play();
+*/
         }
  
     }

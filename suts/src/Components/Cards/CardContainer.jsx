@@ -4,7 +4,7 @@ import { useState } from "react";
 import CardBase from "./CardBase";
 import './CardContainer.css';
 
-export default function CardContainer({scene, handleAnswerClick, handleLoginClick, user}) {
+export default function CardContainer({scene, handleAnswerClick, handleLoginClick, user, picked}) {
     const {history, image, answers, login, inventory} = scene.content;
     const [cardContainer, setCardContainer] = useState([]);
     const [item, setItem] = useState({});
@@ -12,13 +12,29 @@ export default function CardContainer({scene, handleAnswerClick, handleLoginClic
     const speech = window.speechSynthesis;
     const msg = new SpeechSynthesisUtterance()
     msg.lang = 'es-ES';
+    const [audioH, setAudioH] = useState(null);
 
-    const readToMe = ()=> {
-        debugger;
+    const handlerAudio = (audio) => {
+        if (audioH) {
+            audioH.pause();
+            audioH.currentTime = 0;
+        }
+        setAudioH(new Audio(audio));
+        playAudioHistory(audio);
+//        readToMe()
+    }
+    
+/*     const readToMe = ()=> {
         let voice = speech.getVoices();
-        msg.voice = voice[5];
+        msg.voice = voice[4];
         msg.text = history.text;
         speech.speak(msg)
+    } */
+
+    const playAudioHistory = (audio) => {
+        const audioHistory = new Audio(audio);
+        audioHistory.play();
+        setAudioH(audioHistory);
     }
 
     const handleInventoryClick = (item) => {
@@ -26,15 +42,22 @@ export default function CardContainer({scene, handleAnswerClick, handleLoginClic
     }
 
     useEffect(() => {
-        debugger;
+        if (audioH) {
+            audioH.pause();
+            audioH.currentTime = 0;
+        }
+    }, [scene]);
+
+    useEffect(() => {
         speech.cancel();
         if (scene.cards.charAt() === 'E') {
+            debugger;
+            let filteredAnswers = answers.filter(answr => !picked.includes(answr.itemId));
             setCardContainer([
-                <CardBase key='history' data={{type: 'history', history}} delay={500}/>,
+                <CardBase key='history' data={{type: 'history', history, handlerAudio: {handlerAudio}}} delay={500}/>,
                 <CardBase key='image' data={{type: 'image', image}} delay={750}/>,
-                <CardBase key='answers' data={{type: 'answers', answers, handler: {handleAnswerClick}, user}} delay={1000}/>
+                <CardBase key='answers' data={{type: 'answers', filteredAnswers, handler: {handleAnswerClick}, user}} delay={1000}/>
             ])
-            readToMe();
         } else if (scene.cards === 'Login') {
             setCardContainer([
                 <CardBase key='loginLeft' data={{type: 'default'}} delay={500} noFlip={true}/>,
@@ -44,8 +67,8 @@ export default function CardContainer({scene, handleAnswerClick, handleLoginClic
         } else if (scene.cards === 'Inventory') {
             setCardContainer([
                 <CardBase key='inventory' data={{type: 'inventory', inventory, handlerInvent: {handleInventoryClick}, handler: {handleAnswerClick}, user:user}} delay={500}/>,
-                <CardBase key='inventoryDescription' data={{type: 'inventoryDescription', item: item}} delay={750}/>,
-                <CardBase key='inventoryRight' data={{type: 'default'}} delay={1000} noFlip={true}/>
+                <CardBase key='inventoryDescription' data={{type: 'inventoryDescription', item: item}} delay={500}/>,
+                <CardBase key='inventoryRight' data={{type: 'default'}} delay={0} noFlip={true}/>
             ])
         }
     }, [handleLoginClick, handleAnswerClick, item, history, image, answers, user])

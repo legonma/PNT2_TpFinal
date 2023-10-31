@@ -12,7 +12,7 @@ function App() {
     const [isLoged, setIsLoged] = useState(false);
     const [currentScene, setCurrentScene] = useState({});
     const [currentUser, setCurrentUser] = useState({});
-
+    const [pickedItems, setPickedItems] = useState([]);
 
     // ----------------------USERS------------------------------
     const getOrUpdateUser = async (form) => {
@@ -94,6 +94,7 @@ function App() {
         if (itemId) {
             let item = await getItem(itemId);
             inventory = [item.data];
+            setPickedItems(prev => [...prev, itemId]);
         };
         // viene una escena.. tipo E0
         // NO HACE PUT tambien puede venir Inventario.. y de ser asi tiene que ir con setScenes. no hacer un put en escene y tampoco en invent
@@ -123,7 +124,7 @@ function App() {
         <div className='App'>
             <CardProvider>
                 <Header handleAnswerClick={handleAnswerClick} isLoged = {isLoged}/>
-                <CardContainer scene={currentScene} handleAnswerClick={handleAnswerClick} handleLoginClick={handleLoginClick} user={{currentUser, setCurrentUser}}/>
+                <CardContainer scene={currentScene} handleAnswerClick={handleAnswerClick} handleLoginClick={handleLoginClick} user={{currentUser, setCurrentUser}} picked = {pickedItems}/>
                 {/* <InventroyButton handleAnswerClick={handleAnswerClick}/> */}
             </CardProvider>
         </div>
