@@ -6,7 +6,6 @@ import audioHoverButton from '../../Audio/audioHoverButton.mp3';
 
 export default function CardAnswer({answers, handler, user}) {
     const {flipCard} = useContext(CardContext)
-    debugger;
     const handleOnClick = (answr) => {
         if (!answr.noFlip) {
             flipCard()

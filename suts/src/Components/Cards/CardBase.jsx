@@ -15,13 +15,11 @@ export default function CardBase({data, delay, noFlip}) {
     const flipFront = () => {
         if (!noFlip) {
             setCard('Card');
-/*          
-            const audio = new Audio(audioHoverButton)
-            audio.muted = muted;
-            audio.play();
-*/
+            if (data.type === 'history' || data.type === 'image' || data.type === 'answers') {
+                const audio = new Audio(audioHoverButton);
+                audio.play();
+            }
         }
- 
     }
         
     useEffect(() => {

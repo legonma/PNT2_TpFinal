@@ -51,7 +51,6 @@ export default function CardContainer({scene, handleAnswerClick, handleLoginClic
     useEffect(() => {
         speech.cancel();
         if (scene.cards.charAt() === 'E') {
-            debugger;
             let filteredAnswers = answers.filter(answr => !picked.includes(answr.itemId));
             setCardContainer([
                 <CardBase key='history' data={{type: 'history', history, handlerAudio: {handlerAudio}}} delay={500}/>,

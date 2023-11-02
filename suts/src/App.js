@@ -13,7 +13,7 @@ function App() {
     const [currentScene, setCurrentScene] = useState({});
     const [currentUser, setCurrentUser] = useState({});
     const [pickedItems, setPickedItems] = useState([]);
-
+    const [firstClick, setFirstClick] = useState(false);
     // ----------------------USERS------------------------------
     const getOrUpdateUser = async (form) => {
         try {
@@ -120,13 +120,19 @@ function App() {
         return (<div>Cargando</div>)
     }
 
+    const handlerFirstClick = () => {
+        setFirstClick(true);
+    }
+
     return (
         <div className='App'>
-            <CardProvider>
-                <Header handleAnswerClick={handleAnswerClick} isLoged = {isLoged}/>
-                <CardContainer scene={currentScene} handleAnswerClick={handleAnswerClick} handleLoginClick={handleLoginClick} user={{currentUser, setCurrentUser}} picked = {pickedItems}/>
-                {/* <InventroyButton handleAnswerClick={handleAnswerClick}/> */}
-            </CardProvider>
+            {!firstClick 
+                ? <div className='Black'><div className='Mapa'><button className='Start' onClick={handlerFirstClick}>Start</button></div></div> 
+                : <CardProvider>
+                    <Header handleAnswerClick={handleAnswerClick} isLoged = {isLoged}/>
+                    <CardContainer scene={currentScene} handleAnswerClick={handleAnswerClick} handleLoginClick={handleLoginClick} user={{currentUser, setCurrentUser}} picked = {pickedItems}/>
+                </CardProvider>
+            }
         </div>
     );
 }
