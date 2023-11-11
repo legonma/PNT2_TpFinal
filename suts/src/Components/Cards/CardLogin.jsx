@@ -30,8 +30,8 @@ export default function CardLogin({login, handler}) {
             <div className="Content">
                 <form onSubmit={handleOnClick} action="api/users" method={method} autoComplete='off'>
                     <div className="input-container">
-                        <label htmlFor="username">Username </label>
-                        <input type="text" name="uname" required id="username" />
+                        <label htmlFor="username">UserEmail</label>
+                        <input type="email" name="uname" required id="username" />
                     </div>
                     <div className="input-container">
                         <label htmlFor="password">Password </label>
