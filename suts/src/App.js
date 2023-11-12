@@ -25,8 +25,8 @@ function App() {
                 res = await postUser(user);                
             }
             const userData = res.data;
-            if (!Object.keys(userData).length) {
-                addMessageError();
+            if (userData.msg) {
+                addMessageError(userData.msg);
                 return;
             }
             setCurrentUser(userData);
@@ -38,7 +38,7 @@ function App() {
     }
  
     const getUser = async (user) => {
-        return await axios.get(`http://localhost:8080/api/users/${user.get('uname')}`);
+        return await axios.post(`http://localhost:8080/api/users/`, {"uname": user.get('uname'), "pass": user.get('pass')});
     }
 
     const getItem = async (id) => {
@@ -46,7 +46,7 @@ function App() {
     }
 
     const postUser = async (user) => {
-        return await axios.post(`http://localhost:8080/api/users/`, {"uname": user.get('uname'), "pass": user.get('pass')});
+        return await axios.post(`http://localhost:8080/api/users/create/`, {"uname": user.get('uname'), "pass": user.get('pass')});
     }
 
     const putUser = async (escene, inventory) => {
@@ -58,8 +58,9 @@ function App() {
         await axios.delete(`http://localhost:8080/api/users/${currentUser.id}`);
     }
 
-    const addMessageError = () => {
+    const addMessageError = (msg) => {
         let msgError = document.getElementById('msgError');
+        msgError.innerHTML = msg;
         msgError.style.visibility = 'unset';
     }
 

@@ -42,9 +42,7 @@ export default function CardLogin({login, handler}) {
                     </div>
                 </form>
                 <div id="msgError">
-                    <p>Usuario no encontrado
-                    <br></br>
-                    pruebe creando una cuenta</p>
+                    
                 </div>
                 <button onClick = {() => switchMethod({method})} className="CrearCuenta">{text} cuenta</button>
             </div>
