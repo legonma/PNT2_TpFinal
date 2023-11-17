@@ -33,7 +33,7 @@ export default function CardHistory({history, handler}) {
                 <h2>{history.title}</h2>
                 <p>{history.text}</p>
             </div>
-            <button className={showParrot} onClick={handlerSpeekAudio}></button>
+            <button className={showParrot} title='Read a card' onClick={handlerSpeekAudio}></button>
         </div>
     )
 }

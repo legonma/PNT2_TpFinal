@@ -54,7 +54,7 @@ useEffect(() => {
                 <div className="InventoryGrid">{inventoryContainer}
                 </div>
             </div>
-            <button className="ButtonInventory" onClick={() => handleOnClick({next:'BackToEscene'})}><span className="InventaryText">Back</span></button>
+            <button title="Volver a la historia" className="ButtonInventory" onClick={() => handleOnClick({next:'BackToEscene'})}><span className="InventaryText">Back</span></button>
         </div>
     )
 }

@@ -14,7 +14,18 @@ function App() {
     const [currentUser, setCurrentUser] = useState({});
     const [pickedItems, setPickedItems] = useState([]);
     const [firstClick, setFirstClick] = useState(false);
+
+
     // ----------------------USERS------------------------------
+    
+    /*
+        El metodo getOrUpdateUser cambia la ruta del form para enviar los datos
+        O crea un user o trae uno o su respectivo mensaje de error.
+
+        + Si userData.msg existe es que hubo un error y este mostrara el mensaje
+        + de lo contrario setea el user la escena para que se muestre y el booleano de la carga fue un exito
+    */
+    
     const getOrUpdateUser = async (form) => {
         try {
             const user = new FormData(form);
@@ -37,6 +48,13 @@ function App() {
         }
     }
  
+
+    // ---------------------- SERVER API ------------------------------
+
+    /* 
+        Tenemos una API RESFULL
+    */
+
     const getUser = async (user) => {
         return await axios.post(`http://localhost:8080/api/users/`, {"uname": user.get('uname'), "pass": user.get('pass')});
     }
@@ -63,6 +81,7 @@ function App() {
         msgError.innerHTML = msg;
         msgError.style.visibility = 'unset';
     }
+
 
     // ----------------------------SCENES -------------------
     const setScenes = async (escene) => {

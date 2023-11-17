@@ -46,7 +46,7 @@ export default function CardAnswer({answers, handler, user}) {
                 </ul>
                 <div className="Miselan"></div>
             </div>
-            <button className="ButtonInventory" onClick={() => handleOnClick({next:'Inventory'})}><span className="InventaryText">Inventario</span></button>
+            <button title="Tus cosas" className="ButtonInventory" onClick={() => handleOnClick({next:'Inventory'})}><span className="InventaryText">Inventario</span></button>
         </div>
     )
 }
