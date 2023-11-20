@@ -19,12 +19,28 @@ export default function CardHistory({history, handler}) {
     }, [msg])
 */
 
+
+const speech = window.speechSynthesis;
+const msg = new SpeechSynthesisUtterance()
+    const speachSynt = () => {
+        msg.lang = 'es-ES';
+        msg.text = history.text;
+        speech.cancel();
+        setTimeout(() => {
+            speech.speak(msg)
+        }, 1200);
+    }
+
     const handlerSpeekAudio = () => {
-        handler.handlerAudio(history.audio);
+        if (history.audio) {
+            handler.handlerAudio(history.audio);  
+        } else {
+            speachSynt();
+        }
         setShowParrot('ParrotHidden');
         setTimeout(() => {
             setShowParrot('Parrot')
-        }, 22000);
+        }, 22000);  
     }
 
     return (

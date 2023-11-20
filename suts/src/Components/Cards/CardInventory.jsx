@@ -21,6 +21,7 @@ const handleOnClick = (answr) => {
         flipCard()
     }
     setTimeout(() => {
+        handler.handleInventoryClick({});
         handlerAnswer.handleAnswerClick(answr);
     }, 1200);
 };
