@@ -41,6 +41,7 @@ function App() {
                 return;
             }
             setCurrentUser(userData);
+            setIsLoged(true);
             setScenes(userData.escene);
             setIsDataLoaded(true);// no se si sacar
         } catch(error) {
@@ -104,7 +105,6 @@ function App() {
     },[])
     
     const handleLoginClick = async (form) => {
-        setIsLoged(true);
         getOrUpdateUser(form);
     };
 
@@ -127,6 +127,10 @@ function App() {
             await setScenes(currentUser.escene);    
         } else if (next === "Dead") {
             await deletUser();
+            setIsLoged(false);
+            await setScenes("Login");
+        } else if (next === "Login") {
+            setIsLoged(false);
             await setScenes("Login");
         } else {
             await putUser(next, inventory);
@@ -149,7 +153,7 @@ function App() {
             {!firstClick 
                 ? <div className='Black'><div className='Mapa'><button className='Start' onClick={handlerFirstClick}>Start</button></div></div> 
                 : <CardProvider>
-                    <Header handleAnswerClick={handleAnswerClick} isLoged = {isLoged}/>
+                    <Header handleAnswerClick={handleAnswerClick} isLoged = {isLoged} user = {{currentUser, setCurrentUser}}/>
                     <CardContainer scene={currentScene} handleAnswerClick={handleAnswerClick} handleLoginClick={handleLoginClick} user={{currentUser, setCurrentUser}} picked = {pickedItems}/>
                 </CardProvider>
             }

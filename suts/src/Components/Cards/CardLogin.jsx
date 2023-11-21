@@ -6,15 +6,15 @@ export default function CardLogin({login, handler}) {
     // --- Si es que necesito dar vuelta la carta uso context. por ahora no se que carajos voy a hacer aca
     //const {flipCard} = useContext(CardContext)
     const [method , setMethod] = useState('get');
-    const [text, setText] = useState('crear');
+    const [text, setText] = useState('Click aca para registrar');
 
     const switchMethod = (evt) => {
         if (method === 'post') {
             setMethod('get');
-            setText('crear');
+            setText('Click aca para registrar');
         } else {
             setMethod('post');
-            setText('login');
+            setText('Click aca para login');
         }
     }
 
@@ -41,10 +41,9 @@ export default function CardLogin({login, handler}) {
                         <button>submit</button>
                     </div>
                 </form>
-                <div id="msgError">
-                    
-                </div>
-                <button onClick = {() => switchMethod({method})} className="CrearCuenta">{text} cuenta</button>
+                <div id="msgError"></div>
+                <div className="Miselan"></div>
+                <button onClick = {() => switchMethod({method})} className="CrearCuenta">{text}</button>
             </div>
         </div>
     )

@@ -60,12 +60,13 @@
 .CrearCuenta {
     background-color: unset;
     border: none;
-    color: #3F51B5;
     cursor: pointer;
-    font-size: 14px;
     margin-top: 50px;
     position: absolute;
-    bottom: 130px;
+    bottom: 112px;
+    font-family: 'Young Serif';
+    font-size: 14px;
+    color: #342b2b;
 }
 
 #msgError {
@@ -74,4 +75,15 @@
     position: absolute;
     bottom: 150px;
     font-size: 15px;
+}
+
+.CardLogin .Miselan {
+    background-image: url('../../Assets/Miselan.png');
+    width: 340px;
+    height: 25px;
+    position: relative;
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: -20px;
 }

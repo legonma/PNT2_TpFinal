@@ -6,7 +6,7 @@
     justify-content: space-around;
 }
 
-.loginButton {
+.LoginButton {
     background-image: url('../../Assets/LoginImage.png');
     background-color: unset;
     background-repeat: no-repeat;
@@ -14,12 +14,21 @@
     width: 155px;
     height: 63px;
     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.48);
+    position: relative;
+    transition: top 0.3s ease-in-out;
 }
 
-.loginButton span {
+.LoginButton span {
     font-family: 'Young Serif';
-    font-size: 20px;
+    font-size: 18px;
     top: -10px;
     color: #342b2b;
     position: relative;
+}
+
+.LoginButton .UserName {
+    display: block;
+    font-size: 12px;
+    margin-top: -5px;
+    color: #872727;
 }
