@@ -4,6 +4,8 @@ export const CardContext = createContext();
 
 export const CardProvider = ({ children }) => {
   const [cardFlipped, setCardFlipped] = useState(false);
+  const [item, setItem] = useState({});
+
   //const [currentUser, setCurrentUser] = useState({});
 //fix mas adelante.. poner el user en el context
   const flipCard = () => {
@@ -11,7 +13,7 @@ export const CardProvider = ({ children }) => {
   }
 
   return (
-    <CardContext.Provider value={{ cardFlipped, flipCard}}>
+    <CardContext.Provider value={{ cardFlipped, flipCard, item, setItem}}>
       {children}
     </CardContext.Provider>
   );

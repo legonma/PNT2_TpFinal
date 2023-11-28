@@ -1,9 +1,12 @@
 import React from "react";
+import { useContext } from "react";
 import { useEffect , useState} from "react";
 import './CardInventoryDescription.css';
+import { CardContext } from "./Context/CardContext";
 
-export default function CardInventoryDescription({item}) {
+export default function CardInventoryDescription() {
     const [inventoryContainer, setinventoryContainer] = useState([])
+    const {item} = useContext(CardContext);
     
     useEffect(() => {
         let content = [];

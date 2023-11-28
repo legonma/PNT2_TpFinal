@@ -8,7 +8,7 @@ import CardSettings from "./CardSettings";
 import CardInventoryDescription from "./CardInventoryDescription";
 
 export default function CardFactory({data}) {
-    const {type, history, image, filteredAnswers, handler, handlerInvent, handlerLogin, handlerAudio, login, item, user} = data;
+    const {type, history, image, filteredAnswers, handler, handlerInvent, handlerLogin, handlerAudio, login, user} = data;
     switch (type) {
         case 'history':
             return <CardHistory history={history} handler= {handlerAudio}/>
@@ -23,7 +23,7 @@ export default function CardFactory({data}) {
         case 'inventory':
             return <CardInventory handler = {handlerInvent} handlerAnswer = {handler} user={user}/>
         case 'inventoryDescription':
-            return <CardInventoryDescription handler = {handlerInvent} item = {item}/>
+            return <CardInventoryDescription handler = {handlerInvent}/>
         default:
             return null// aca va el default es la carta;
     }

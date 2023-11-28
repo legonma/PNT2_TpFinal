@@ -1,13 +1,15 @@
 import React from "react";
 import { useEffect } from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import CardBase from "./CardBase";
 import './CardContainer.css';
+import { CardContext } from "./Context/CardContext";
 
 export default function CardContainer({scene, handleAnswerClick, handleLoginClick, user, picked}) {
     const {history, image, answers, login, inventory} = scene.content;
     const [cardContainer, setCardContainer] = useState([]);
-    const [item, setItem] = useState({});
+    const {item, setItem} = useContext(CardContext);
 
     const speech = window.speechSynthesis;
     const msg = new SpeechSynthesisUtterance()
@@ -66,7 +68,7 @@ export default function CardContainer({scene, handleAnswerClick, handleLoginClic
         } else if (scene.cards === 'Inventory') {
             setCardContainer([
                 <CardBase key='inventory' data={{type: 'inventory', inventory, handlerInvent: {handleInventoryClick}, handler: {handleAnswerClick}, user:user}} delay={500}/>,
-                <CardBase key='inventoryDescription' data={{type: 'inventoryDescription', item: item}} delay={500}/>,
+                <CardBase key='inventoryDescription' data={{type: 'inventoryDescription'}} delay={500}/>,
                 <CardBase key='inventoryRight' data={{type: 'default'}} delay={0} noFlip={true}/>
             ])
         }
